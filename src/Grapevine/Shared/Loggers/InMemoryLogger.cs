@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Grapevine.Interfaces.Shared;
 
 namespace Grapevine.Shared.Loggers
 {

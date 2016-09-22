@@ -1,4 +1,5 @@
-﻿using Grapevine.Server;
+﻿using Grapevine.Interfaces.Server;
+using Grapevine.Server;
 using Grapevine.Server.Attributes;
 using Grapevine.Shared;
 

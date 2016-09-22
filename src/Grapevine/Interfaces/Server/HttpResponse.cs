@@ -8,7 +8,7 @@ using System.Text;
 using Grapevine.Shared;
 using HttpStatusCode = Grapevine.Shared.HttpStatusCode;
 
-namespace Grapevine.Server
+namespace Grapevine.Interfaces.Server
 {
     /// <summary>
     /// Represents a response to a request being handled by an HttpListener object

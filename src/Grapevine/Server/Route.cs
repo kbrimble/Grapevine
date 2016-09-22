@@ -5,7 +5,7 @@ using System.Reflection;
 using Grapevine.Shared;
 using System.Text.RegularExpressions;
 using Grapevine.Server.Attributes;
-using Grapevine.Exceptions.Server;
+using Grapevine.Interfaces.Server;
 
 namespace Grapevine.Server
 {

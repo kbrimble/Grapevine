@@ -45,6 +45,7 @@
     <Compile Include="Client\CollectionWrapper.cs" />
     <Compile Include="Exceptions\Client\ClientStateException.cs" />
     <Compile Include="Interfaces\Server\IHttpListenerContext.cs" />
+    <Compile Include="Interfaces\Shared\IGrapevineLogger.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Client\RestClient.cs" />
     <Compile Include="Client\RestRequest.cs" />
@@ -57,9 +58,9 @@
     <Compile Include="Exceptions\Server\ServerStateException.cs" />
     <Compile Include="Exceptions\Server\UnableToStartHostException.cs" />
     <Compile Include="Exceptions\Server\UnableToStopHostException.cs" />
-    <Compile Include="Server\HttpContext.cs" />
-    <Compile Include="Server\HttpRequest.cs" />
-    <Compile Include="Server\HttpResponse.cs" />
+    <Compile Include="Interfaces\Server\HttpContext.cs" />
+    <Compile Include="Interfaces\Server\HttpRequest.cs" />
+    <Compile Include="Interfaces\Server\HttpResponse.cs" />
     <Compile Include="Interfaces\DynamicProperties.cs" />
     <Compile Include="Interfaces\Server\IHttpListener.cs" />
     <Compile Include="Server\RouteScanner.cs" />
@@ -74,7 +75,6 @@
     <Compile Include="Shared\ContentTypeMetadata.cs" />
     <Compile Include="Shared\ExportedExtensions.cs" />
     <Compile Include="Shared\HttpStatusCode.cs" />
-    <Compile Include="Shared\IGrapevineLogger.cs" />
     <Compile Include="Shared\InternalExtensions.cs" />
     <Compile Include="Shared\HttpMethod.cs" />
     <Compile Include="Shared\Loggers\ConsoleLogger.cs" />

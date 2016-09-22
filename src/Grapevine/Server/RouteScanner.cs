@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using Grapevine.Interfaces.Shared;
 using Grapevine.Server.Attributes;
-using Grapevine.Shared;
 using Grapevine.Shared.Loggers;
 
 namespace Grapevine.Server
@@ -204,11 +204,6 @@ namespace Grapevine.Server
             if (!_excludedAssemblies.Contains(assembly)) return false;
             Logger.Trace($"Excluding assembly {assembly.GetName().Name} due to exclusion rules");
             return true;
-        }
-
-        private bool IsIncluded(string nameSpace)
-        {
-            return !_includedNamespaces.Any() || _includedNamespaces.Contains(nameSpace);
         }
 
         private bool IsIncluded(Type type)

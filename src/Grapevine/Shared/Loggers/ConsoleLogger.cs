@@ -1,4 +1,5 @@
 using System;
+using Grapevine.Interfaces.Shared;
 
 namespace Grapevine.Shared.Loggers
 {

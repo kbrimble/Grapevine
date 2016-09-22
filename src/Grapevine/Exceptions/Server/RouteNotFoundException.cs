@@ -1,5 +1,5 @@
 ﻿using System;
-using Grapevine.Server;
+using Grapevine.Interfaces.Server;
 
 namespace Grapevine.Exceptions.Server
 {

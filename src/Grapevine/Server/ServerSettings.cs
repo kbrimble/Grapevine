@@ -1,5 +1,5 @@
 ﻿using System;
-using Grapevine.Shared;
+using Grapevine.Interfaces.Shared;
 using Grapevine.Shared.Loggers;
 
 namespace Grapevine.Server

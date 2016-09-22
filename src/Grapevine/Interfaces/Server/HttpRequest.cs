@@ -6,9 +6,8 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using Grapevine.Shared;
 using System.IO;
-using System.Linq;
 
-namespace Grapevine.Server
+namespace Grapevine.Interfaces.Server
 {
     /// <summary>
     /// Describes an incoming HTTP request to an HttpListener object

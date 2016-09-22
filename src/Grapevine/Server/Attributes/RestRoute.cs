@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using Grapevine.Exceptions.Server;
+using Grapevine.Interfaces.Server;
 using Grapevine.Shared;
 
 namespace Grapevine.Server.Attributes

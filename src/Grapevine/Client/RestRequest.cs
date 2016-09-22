@@ -244,6 +244,7 @@ namespace Grapevine.Client
         /// Gets the current request as an HttpWebRequest
         /// </summary>
         /// <param name="builder"></param>
+        /// <param name="cookies"></param>
         /// <returns>HttpWebRequest</returns>
         HttpWebRequest ToHttpWebRequest(UriBuilder builder, CookieContainer cookies);
     }
@@ -382,6 +383,7 @@ namespace Grapevine.Client
         /// Gets the current request as an HttpWebRequest
         /// </summary>
         /// <param name="builder"></param>
+        /// <param name="cookies"></param>
         /// <returns>HttpWebRequest</returns>
         public HttpWebRequest ToHttpWebRequest(UriBuilder builder, CookieContainer cookies)
         {

@@ -1,8 +1,8 @@
 ﻿using System.Security.Principal;
 using System.Net;
-using Grapevine.Interfaces;
+using Grapevine.Server;
 
-namespace Grapevine.Server
+namespace Grapevine.Interfaces.Server
 {
     /// <summary>
     /// Provides modified access to the request and response objects used by the HttpListener class
