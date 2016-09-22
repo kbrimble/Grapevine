@@ -1,9 +1,33 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Dynamic;
 using Grapevine.Exceptions.Server;
 
-namespace Grapevine.Server
+namespace Grapevine.Interfaces
 {
+    public interface IDynamicProperties
+    {
+        /// <summary>
+        /// Gets a dynamic object available for adding dynamic properties at run-time
+        /// </summary>
+        dynamic Properties { get; }
+    }
+
+    public abstract class DynamicProperties : IDynamicProperties
+    {
+        private ExpandoObject _properties;
+
+        public dynamic Properties
+        {
+            get
+            {
+                if (_properties != null) return _properties;
+                _properties = new ExpandoObject();
+                return _properties;
+            }
+        }
+    }
+
     public static class DynamicPropertiesExtensions
     {
         public static T GetPropertyValueAs<T>(this IDynamicProperties props, string key)

@@ -2,6 +2,7 @@
 using System.Reflection;
 using Grapevine.Server;
 using Grapevine.Exceptions.Server;
+using Grapevine.Interfaces;
 using Shouldly;
 using Xunit;
 using Microsoft.CSharp.RuntimeBinder;

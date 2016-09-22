@@ -51,7 +51,6 @@
     <Compile Include="Client\RestResponse.cs" />
     <Compile Include="Server\Attributes\RestResource.cs" />
     <Compile Include="Server\Attributes\RestRoute.cs" />
-    <Compile Include="Server\DynamicPropertiesExtensions.cs" />
     <Compile Include="Exceptions\Server\DynamicValueNotFoundException.cs" />
     <Compile Include="Exceptions\Server\InvalidRouteMethodException.cs" />
     <Compile Include="Exceptions\Server\RouteNotFoundException.cs" />
@@ -61,7 +60,7 @@
     <Compile Include="Server\HttpContext.cs" />
     <Compile Include="Server\HttpRequest.cs" />
     <Compile Include="Server\HttpResponse.cs" />
-    <Compile Include="Server\DynamicProperties.cs" />
+    <Compile Include="Interfaces\DynamicProperties.cs" />
     <Compile Include="Interfaces\Server\IHttpListener.cs" />
     <Compile Include="Server\RouteScanner.cs" />
     <Compile Include="Server\ServerSettings.cs" />

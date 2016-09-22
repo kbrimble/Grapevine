@@ -4,6 +4,7 @@ using System.Net;
 using System.Security.Authentication.ExtendedProtection;
 using System.Threading;
 using Grapevine.Exceptions.Server;
+using Grapevine.Interfaces;
 using Grapevine.Interfaces.Server;
 using Grapevine.Shared;
 using Grapevine.Shared.Loggers;
