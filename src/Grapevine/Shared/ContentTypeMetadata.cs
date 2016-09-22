@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Grapevine.Util
+namespace Grapevine.Shared
 {
     /// <summary>
     /// <para>Attribute for ContentType enumeration</para>

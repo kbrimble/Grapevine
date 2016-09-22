@@ -1,5 +1,5 @@
 ﻿using Grapevine.Server;
-using Grapevine.Util;
+using Grapevine.Shared;
 using Rhino.Mocks;
 
 namespace Grapevine.Tests.Server.Helpers

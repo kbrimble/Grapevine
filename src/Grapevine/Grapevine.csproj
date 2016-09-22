@@ -70,24 +70,26 @@
     <Compile Include="Server\RestServer.cs" />
     <Compile Include="Server\Route.cs" />
     <Compile Include="Server\Router.cs" />
-    <Compile Include="Util\ContentType.cs" />
-    <Compile Include="Util\ContentTypeExtensions.cs" />
-    <Compile Include="Util\ContentTypeMetadata.cs" />
-    <Compile Include="Util\ExportedExtensions.cs" />
-    <Compile Include="Util\HttpStatusCode.cs" />
-    <Compile Include="Util\IGrapevineLogger.cs" />
-    <Compile Include="Util\InternalExtensions.cs" />
-    <Compile Include="Util\HttpMethod.cs" />
-    <Compile Include="Util\Loggers\ConsoleLogger.cs" />
-    <Compile Include="Util\Loggers\InMemoryLogger.cs" />
-    <Compile Include="Util\Loggers\LoggerExtensions.cs" />
-    <Compile Include="Util\Loggers\NullLogger.cs" />
-    <Compile Include="Util\ParamParser.cs" />
-    <Compile Include="Util\PortFinder.cs" />
-    <Compile Include="Util\UriSchemeExtensions.cs" />
-    <Compile Include="Util\UriScheme.cs" />
+    <Compile Include="Shared\ContentType.cs" />
+    <Compile Include="Shared\ContentTypeExtensions.cs" />
+    <Compile Include="Shared\ContentTypeMetadata.cs" />
+    <Compile Include="Shared\ExportedExtensions.cs" />
+    <Compile Include="Shared\HttpStatusCode.cs" />
+    <Compile Include="Shared\IGrapevineLogger.cs" />
+    <Compile Include="Shared\InternalExtensions.cs" />
+    <Compile Include="Shared\HttpMethod.cs" />
+    <Compile Include="Shared\Loggers\ConsoleLogger.cs" />
+    <Compile Include="Shared\Loggers\InMemoryLogger.cs" />
+    <Compile Include="Shared\Loggers\LoggerExtensions.cs" />
+    <Compile Include="Shared\Loggers\NullLogger.cs" />
+    <Compile Include="Shared\ParamParser.cs" />
+    <Compile Include="Shared\PortFinder.cs" />
+    <Compile Include="Shared\UriSchemeExtensions.cs" />
+    <Compile Include="Shared\UriScheme.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Interfaces\Server\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

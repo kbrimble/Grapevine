@@ -1,13 +1,13 @@
 ﻿using System;
 using Grapevine.Server;
-using Grapevine.Util;
+using Grapevine.Shared;
 using Shouldly;
 using Xunit;
 using System.Collections.Generic;
 using Grapevine.Server.Exceptions;
 using Grapevine.TestAssembly;
 using Grapevine.Tests.Server.Helpers;
-using Grapevine.Util.Loggers;
+using Grapevine.Shared.Loggers;
 using Rhino.Mocks;
 
 namespace Grapevine.Tests.Server

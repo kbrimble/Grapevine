@@ -8,8 +8,8 @@ using Grapevine.Server.Exceptions;
 using Grapevine.TestAssembly;
 using Grapevine.Tests.Server.Attributes.Helpers;
 using Grapevine.Tests.Server.Helpers;
-using Grapevine.Util;
-using Grapevine.Util.Loggers;
+using Grapevine.Shared;
+using Grapevine.Shared.Loggers;
 using Shouldly;
 using Xunit;
 

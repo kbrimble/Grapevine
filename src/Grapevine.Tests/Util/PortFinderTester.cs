@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Linq;
-using Grapevine.Util;
+using Grapevine.Shared;
 using Shouldly;
 using Xunit;
 

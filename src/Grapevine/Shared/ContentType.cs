@@ -1,4 +1,4 @@
-﻿namespace Grapevine.Util
+﻿namespace Grapevine.Shared
 {
     /// <summary>
     /// MIME type of the body of the request or response

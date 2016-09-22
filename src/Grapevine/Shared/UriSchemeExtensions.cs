@@ -1,4 +1,4 @@
-﻿namespace Grapevine.Util
+﻿namespace Grapevine.Shared
 {
     internal static class UriSchemeExtensions
     {

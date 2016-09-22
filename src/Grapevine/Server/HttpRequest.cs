@@ -4,7 +4,7 @@ using System.Collections.Specialized;
 using System.Net;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
-using Grapevine.Util;
+using Grapevine.Shared;
 using System.IO;
 using System.Linq;
 

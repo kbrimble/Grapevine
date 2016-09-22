@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using Grapevine.Server;
 using Grapevine.Server.Attributes;
-using Grapevine.Util;
+using Grapevine.Shared;
 
 namespace Grapevine.Tests.Server.Helpers
 {

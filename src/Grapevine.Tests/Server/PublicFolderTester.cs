@@ -2,7 +2,7 @@
 using System.IO;
 using Grapevine.Server;
 using Grapevine.Tests.Server.Helpers;
-using Grapevine.Util;
+using Grapevine.Shared;
 using Rhino.Mocks;
 using Shouldly;
 using Xunit;

@@ -1,4 +1,4 @@
-﻿using Grapevine.Util.Loggers;
+﻿using Grapevine.Shared.Loggers;
 using Shouldly;
 using Xunit;
 

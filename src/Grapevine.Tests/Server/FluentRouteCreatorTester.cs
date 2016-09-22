@@ -1,7 +1,7 @@
 ﻿using System;
 using Grapevine.Server;
 using Grapevine.Tests.Server.Helpers;
-using Grapevine.Util;
+using Grapevine.Shared;
 using Shouldly;
 using Xunit;
 

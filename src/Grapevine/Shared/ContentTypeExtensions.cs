@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 
-namespace Grapevine.Util
+namespace Grapevine.Shared
 {
     public static class ContentTypeExtensions
     {

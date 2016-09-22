@@ -1,6 +1,6 @@
 using System;
 
-namespace Grapevine.Util.Loggers
+namespace Grapevine.Shared.Loggers
 {
     /// <summary>
     /// Console based implementation of IGrapevineLogger; this class cannot be inherited

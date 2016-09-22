@@ -1,4 +1,4 @@
-﻿namespace Grapevine.Util
+﻿namespace Grapevine.Shared
 {
     /// <summary>
     /// Http status codes by name, see https://en.wikipedia.org/wiki/List_of_HTTP_status_codes

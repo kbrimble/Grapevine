@@ -3,7 +3,7 @@ using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Linq.Expressions;
 
-namespace Grapevine.Util
+namespace Grapevine.Shared
 {
     public static class ExportedExtensions
     {

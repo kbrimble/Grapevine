@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using System.Text.RegularExpressions;
 using Grapevine.Server;
-using Grapevine.Util;
+using Grapevine.Shared;
 
 namespace Grapevine.Tests.Server.Helpers
 {

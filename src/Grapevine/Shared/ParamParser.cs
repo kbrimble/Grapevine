@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace Grapevine.Util
+namespace Grapevine.Shared
 {
     /// <summary>
     /// Provides methods for parsing PathInfo patterns

@@ -6,7 +6,7 @@ using System.Security.Cryptography.X509Certificates;
 using System.Security.Principal;
 using System.Text;
 using System.Text.RegularExpressions;
-using Grapevine.Util;
+using Grapevine.Shared;
 
 namespace Grapevine.Client
 {

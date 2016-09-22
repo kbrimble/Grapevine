@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Grapevine.Util
+namespace Grapevine.Shared
 {
     public interface IGrapevineLogger
     {

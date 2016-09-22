@@ -1,4 +1,4 @@
-﻿namespace Grapevine.Util
+﻿namespace Grapevine.Shared
 {
     public enum UriScheme
     {

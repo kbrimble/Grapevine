@@ -1,4 +1,4 @@
-﻿using Grapevine.Util;
+﻿using Grapevine.Shared;
 using Xunit;
 using Shouldly;
 

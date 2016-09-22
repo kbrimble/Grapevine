@@ -4,7 +4,7 @@ using System.Reflection;
 using Grapevine.Server.Attributes;
 using Grapevine.Server.Exceptions;
 using Grapevine.Tests.Server.Attributes.Helpers;
-using Grapevine.Util;
+using Grapevine.Shared;
 using Rhino.Mocks;
 using Shouldly;
 using Xunit;

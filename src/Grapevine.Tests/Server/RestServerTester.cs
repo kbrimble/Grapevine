@@ -5,7 +5,7 @@ using Grapevine.Server;
 using Grapevine.Server.Exceptions;
 using Grapevine.Server.Interfaces;
 using Grapevine.Tests.Server.Helpers;
-using Grapevine.Util.Loggers;
+using Grapevine.Shared.Loggers;
 using Rhino.Mocks;
 
 namespace Grapevine.Tests.Server

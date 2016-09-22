@@ -1,4 +1,4 @@
-﻿namespace Grapevine.Util.Loggers
+﻿namespace Grapevine.Shared.Loggers
 {
     public static class LoggerExtensions
     {

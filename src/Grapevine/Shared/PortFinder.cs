@@ -4,7 +4,7 @@ using System.Linq;
 using System.Net.NetworkInformation;
 using System.Threading;
 
-namespace Grapevine.Util
+namespace Grapevine.Shared
 {
     /// <summary>
     /// Provides synchronous and asynchronous methods to detect available ports

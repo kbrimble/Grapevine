@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using Grapevine.Util;
+using Grapevine.Shared;
 using System.Text.RegularExpressions;
 using Grapevine.Server.Attributes;
 using Grapevine.Server.Exceptions;

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Grapevine.Util.Loggers
+namespace Grapevine.Shared.Loggers
 {
     /// <summary>
     /// In-memory only implementation of IGrapevineLogger for testing purposes; this class cannot be inherited

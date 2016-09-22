@@ -1,5 +1,5 @@
 ﻿using System;
-using Grapevine.Util;
+using Grapevine.Shared;
 using Shouldly;
 using Xunit;
 

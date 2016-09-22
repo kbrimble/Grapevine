@@ -4,7 +4,7 @@ using System.Net.Cache;
 using System.Net.Security;
 using System.Security.Principal;
 using Grapevine.Client;
-using Grapevine.Util;
+using Grapevine.Shared;
 using Shouldly;
 using Xunit;
 

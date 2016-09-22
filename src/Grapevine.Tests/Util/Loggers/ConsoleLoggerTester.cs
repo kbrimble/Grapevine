@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
-using Grapevine.Util;
-using Grapevine.Util.Loggers;
+using Grapevine.Shared;
+using Grapevine.Shared.Loggers;
 using Shouldly;
 using Xunit;
 
