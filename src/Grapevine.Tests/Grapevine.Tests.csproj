@@ -78,41 +78,7 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
-    <Compile Include="Client\CollectionWrapperTester.cs" />
-    <Compile Include="Client\RestClientTester.cs" />
-    <Compile Include="Client\RestRequestTester.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Server\Attributes\Helpers\RestResourceTesterHelper.cs" />
-    <Compile Include="Server\Attributes\RestResourceTester.cs" />
-    <Compile Include="Server\Attributes\RestRouteTester.cs" />
-    <Compile Include="Server\DynamicPropertiesTester.cs" />
-    <Compile Include="Server\FluentRouteCreatorTester.cs" />
-    <Compile Include="Server\Helpers\MockContext.cs" />
-    <Compile Include="Server\Attributes\Helpers\RestRouteTesterHelper.cs" />
-    <Compile Include="Server\Helpers\PublicFolderTesterHelper.cs" />
-    <Compile Include="Server\Helpers\RestServerTesterHelper.cs" />
-    <Compile Include="Server\Helpers\RouterTesterHelper.cs" />
-    <Compile Include="Server\Helpers\RouteScannerTesterHelper.cs" />
-    <Compile Include="Server\Helpers\RouteTesterHelper.cs" />
-    <Compile Include="Server\PublicFolderTester.cs" />
-    <Compile Include="Server\RestServerTester.cs" />
-    <Compile Include="Server\RouterTester.cs" />
-    <Compile Include="Server\RouteScannerTester.cs" />
-    <Compile Include="Server\RouteTester.cs" />
-    <Compile Include="Server\ServerSettingsTester.cs" />
-    <Compile Include="Util\ContentTypeExtensionsTester.cs" />
-    <Compile Include="Util\ContentTypeMetadataTester.cs" />
-    <Compile Include="Util\ExportedExtensionsTester.cs" />
-    <Compile Include="Util\HttpMethodTester.cs" />
-    <Compile Include="Util\HttpStatusCodeTester.cs" />
-    <Compile Include="Util\InternalExtensionsTester.cs" />
-    <Compile Include="Util\Loggers\ConsoleLoggerTester.cs" />
-    <Compile Include="Util\Loggers\InMemoryLoggerTester.cs" />
-    <Compile Include="Util\Loggers\LoggerExtensionsTester.cs" />
-    <Compile Include="Util\Loggers\NullLoggerTester.cs" />
-    <Compile Include="Util\PatternParserTester.cs" />
-    <Compile Include="Util\PortFinderTester.cs" />
-    <Compile Include="Util\UriSchemeExtensionsTester.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
