@@ -4,7 +4,7 @@ using Grapevine.Shared;
 using Shouldly;
 using Xunit;
 using System.Collections.Generic;
-using Grapevine.Server.Exceptions;
+using Grapevine.Exceptions.Server;
 using Grapevine.TestAssembly;
 using Grapevine.Tests.Server.Helpers;
 using Grapevine.Shared.Loggers;

@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Grapevine.Server.Exceptions;
+using Grapevine.Exceptions.Server;
 
 namespace Grapevine.Server
 {

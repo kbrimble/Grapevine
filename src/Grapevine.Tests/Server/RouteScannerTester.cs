@@ -4,7 +4,7 @@ using System.Reflection;
 using System.Threading;
 using Grapevine.Server;
 using Grapevine.Server.Attributes;
-using Grapevine.Server.Exceptions;
+using Grapevine.Exceptions.Server;
 using Grapevine.TestAssembly;
 using Grapevine.Tests.Server.Attributes.Helpers;
 using Grapevine.Tests.Server.Helpers;

@@ -1,6 +1,6 @@
 using System;
 
-namespace Grapevine.Server.Exceptions
+namespace Grapevine.Exceptions.Server
 {
     /// <summary>
     /// Thrown when there is an attempt to modify the Protocol, Host, Port or Connections property of a running instance of RestServer.

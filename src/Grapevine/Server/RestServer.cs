@@ -3,13 +3,13 @@ using System.Collections.Concurrent;
 using System.Net;
 using System.Security.Authentication.ExtendedProtection;
 using System.Threading;
-using Grapevine.Server.Exceptions;
-using Grapevine.Server.Interfaces;
+using Grapevine.Exceptions.Server;
+using Grapevine.Interfaces.Server;
 using Grapevine.Shared;
 using Grapevine.Shared.Loggers;
 using HttpStatusCode = Grapevine.Shared.HttpStatusCode;
 using ExtendedProtectionSelector = System.Net.HttpListener.ExtendedProtectionSelector;
-using HttpListener = Grapevine.Server.Interfaces.HttpListener;
+using HttpListener = Grapevine.Interfaces.Server.HttpListener;
 
 namespace Grapevine.Server
 {

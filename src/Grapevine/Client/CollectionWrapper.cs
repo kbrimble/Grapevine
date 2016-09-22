@@ -2,7 +2,7 @@
 using System.Collections.Specialized;
 using System.Linq;
 using System.Text.RegularExpressions;
-using Grapevine.Client.Exceptions;
+using Grapevine.Exceptions.Client;
 
 namespace Grapevine.Client
 {

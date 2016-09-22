@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Grapevine.Client.Exceptions
+namespace Grapevine.Exceptions.Client
 {
     /// <summary>
     /// Thrown when attempting to access the PathInfo property of Client.RestRequest where not all resource tokens are able to be resolved.

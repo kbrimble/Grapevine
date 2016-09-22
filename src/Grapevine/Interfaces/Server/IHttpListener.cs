@@ -3,7 +3,7 @@ using System.Net;
 using System.Security.Authentication.ExtendedProtection;
 using System.Security.Permissions;
 
-namespace Grapevine.Server.Interfaces
+namespace Grapevine.Interfaces.Server
 {
     /// <summary>
     /// Interface for a simple, programmatically controlled HTTP protocol InnerListener.

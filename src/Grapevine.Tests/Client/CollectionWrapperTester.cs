@@ -1,5 +1,5 @@
 ﻿using Grapevine.Client;
-using Grapevine.Client.Exceptions;
+using Grapevine.Exceptions.Client;
 using Shouldly;
 using Xunit;
 

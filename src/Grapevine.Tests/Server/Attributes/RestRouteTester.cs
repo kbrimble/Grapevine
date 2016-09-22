@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Reflection;
 using Grapevine.Server.Attributes;
-using Grapevine.Server.Exceptions;
+using Grapevine.Exceptions.Server;
 using Grapevine.Tests.Server.Attributes.Helpers;
 using Grapevine.Shared;
 using Rhino.Mocks;

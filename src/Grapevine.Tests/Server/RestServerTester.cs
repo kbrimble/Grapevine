@@ -2,8 +2,8 @@
 using Xunit;
 using Shouldly;
 using Grapevine.Server;
-using Grapevine.Server.Exceptions;
-using Grapevine.Server.Interfaces;
+using Grapevine.Exceptions.Server;
+using Grapevine.Interfaces.Server;
 using Grapevine.Tests.Server.Helpers;
 using Grapevine.Shared.Loggers;
 using Rhino.Mocks;

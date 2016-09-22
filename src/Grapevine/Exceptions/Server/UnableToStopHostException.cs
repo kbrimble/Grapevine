@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Grapevine.Server.Exceptions
+namespace Grapevine.Exceptions.Server
 {
     /// <summary>
     /// Thrown when the http host is unable to stop.

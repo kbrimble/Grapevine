@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Grapevine.Server.Exceptions
+namespace Grapevine.Exceptions.Server
 {
     public class DynamicValueNotFoundException : Exception
     {

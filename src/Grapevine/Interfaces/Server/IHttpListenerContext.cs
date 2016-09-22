@@ -1,7 +1,7 @@
-﻿using System.Net;
+using System.Net;
 using System.Security.Principal;
 
-namespace Grapevine.Server.Interfaces
+namespace Grapevine.Interfaces.Server
 {
     public interface IHttpListenerContext
     {

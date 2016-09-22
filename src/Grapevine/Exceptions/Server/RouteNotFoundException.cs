@@ -1,6 +1,7 @@
 ﻿using System;
+using Grapevine.Server;
 
-namespace Grapevine.Server.Exceptions
+namespace Grapevine.Exceptions.Server
 {
     /// <summary>
     /// Thrown when no routes are found for the provided context.
