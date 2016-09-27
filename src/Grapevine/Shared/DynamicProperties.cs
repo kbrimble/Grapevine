@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Dynamic;
 using Grapevine.Exceptions.Server;
 
-namespace Grapevine.Interfaces
+namespace Grapevine.Shared
 {
     public interface IDynamicProperties
     {
@@ -32,7 +32,8 @@ namespace Grapevine.Interfaces
     {
         public static T GetPropertyValueAs<T>(this IDynamicProperties props, string key)
         {
-            if (string.IsNullOrWhiteSpace(key)) throw new ArgumentNullException(nameof(key));
+            if (key == null) throw new ArgumentNullException(nameof(key));
+            if (string.IsNullOrWhiteSpace(key)) throw new ArgumentException(nameof(key));
 
             var dictionary = props.Properties as IDictionary<string, object>;
             if (dictionary == null || !dictionary.ContainsKey(key)) throw new DynamicValueNotFoundException(key);
@@ -46,7 +47,8 @@ namespace Grapevine.Interfaces
 
         public static bool ContainsProperty(this IDynamicProperties props, string key)
         {
-            if (string.IsNullOrWhiteSpace(key)) throw new ArgumentNullException(nameof(key));
+            if (key == null) throw new ArgumentNullException(nameof(key));
+            if (string.IsNullOrWhiteSpace(key)) throw new ArgumentException(nameof(key));
 
             var dictionary = props.Properties as IDictionary<string, object>;
             return dictionary != null && dictionary.ContainsKey(key);

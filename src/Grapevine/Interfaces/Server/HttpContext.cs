@@ -1,6 +1,7 @@
 ﻿using System.Security.Principal;
 using System.Net;
 using Grapevine.Server;
+using Grapevine.Shared;
 
 namespace Grapevine.Interfaces.Server
 {

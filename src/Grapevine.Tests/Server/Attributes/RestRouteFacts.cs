@@ -1,11 +1,12 @@
 ﻿using System;
-using System.Globalization;
+using NSubstitute;
 using System.Linq;
 using System.Reflection;
 using Grapevine.Exceptions.Server;
 using Grapevine.Interfaces.Server;
 using Grapevine.Server.Attributes;
 using Grapevine.Shared;
+using NSubstitute.ReturnsExtensions;
 using Shouldly;
 using Xunit;
 
@@ -18,7 +19,7 @@ namespace Grapevine.Tests.Server.Attributes
             public class GetRouteAttributesMethod
             {
                 [Fact]
-                public void rest_route_returns_empty_list_when_attribute_not_present()
+                public void ReturnsEmptyListWhenAttributeNotPresent()
                 {
                     var attributes = typeof(TestClass).GetMethod("IsEligibleButNoAttribute").GetRouteAttributes();
                     attributes.ShouldNotBeNull();
@@ -26,9 +27,9 @@ namespace Grapevine.Tests.Server.Attributes
                 }
 
                 [Fact]
-                public void rest_route_no_args_gets_default_properties()
+                public void NoArgumentsGetsDefaultProperties()
                 {
-                    var method = typeof(RestRouteTesterHelper).GetMethod("RouteHasNoArgs");
+                    var method = typeof(RouteTestMethods).GetMethod("RouteHasNoArgs");
                     var attrs = method.GetRouteAttributes().ToList();
 
                     attrs.Count.ShouldBe(1);
@@ -37,9 +38,9 @@ namespace Grapevine.Tests.Server.Attributes
                 }
 
                 [Fact]
-                public void rest_route_httpmethod_arg_only()
+                public void HttpMethodArgumentOnlyGetsDefaultPathInfo()
                 {
-                    var method = typeof(RestRouteTesterHelper).GetMethod("RouteHasHttpMethodOnly");
+                    var method = typeof(RouteTestMethods).GetMethod("RouteHasHttpMethodOnly");
                     var attrs = method.GetRouteAttributes().ToList();
 
                     attrs.Count.ShouldBe(1);
@@ -48,9 +49,9 @@ namespace Grapevine.Tests.Server.Attributes
                 }
 
                 [Fact]
-                public void rest_route_pathinfo_arg_only()
+                public void PathInfoArgumentOnlyGetsDefaultHttpMethod()
                 {
-                    var method = typeof(RestRouteTesterHelper).GetMethod("RouteHasPathInfoOnly");
+                    var method = typeof(RouteTestMethods).GetMethod("RouteHasPathInfoOnly");
                     var attrs = method.GetRouteAttributes().ToList();
 
                     attrs.Count.ShouldBe(1);
@@ -59,9 +60,9 @@ namespace Grapevine.Tests.Server.Attributes
                 }
 
                 [Fact]
-                public void rest_route_both_args()
+                public void BothArgumentsGetSetCorrectly()
                 {
-                    var method = typeof(RestRouteTesterHelper).GetMethod("RouteHasBothArgs");
+                    var method = typeof(RouteTestMethods).GetMethod("RouteHasBothArgs");
                     var attrs = method.GetRouteAttributes().ToList();
 
                     attrs.Count.ShouldBe(1);
@@ -70,9 +71,9 @@ namespace Grapevine.Tests.Server.Attributes
                 }
 
                 [Fact]
-                public void rest_route_multiple_attributes()
+                public void CanHaveMultipleAttributes()
                 {
-                    var method = typeof(RestRouteTesterHelper).GetMethod("RouteHasMultipleAttrs");
+                    var method = typeof(RouteTestMethods).GetMethod("RouteHasMultipleAttrs");
                     var attrs = method.GetRouteAttributes().ToList();
 
                     attrs.Count.ShouldBe(2);
@@ -86,11 +87,26 @@ namespace Grapevine.Tests.Server.Attributes
             public class HasParameterlessConstructorMethod
             {
                 [Fact]
-                public void has_parameterless_constructor_returns_correct_value()
+                public void ReturnsTrueWithImplicitConstructor()
                 {
                     typeof(ImplicitConstructor).HasParameterlessConstructor().ShouldBeTrue();
+                }
+
+                [Fact]
+                public void ReturnsTrueWithExplicitConstructor()
+                {
                     typeof(ExplicitConstructor).HasParameterlessConstructor().ShouldBeTrue();
+                }
+
+                [Fact]
+                public void ReturnsTrueWithMultipleConstructors()
+                {
                     typeof(MultipleConstructor).HasParameterlessConstructor().ShouldBeTrue();
+                }
+
+                [Fact]
+                public void ReturnsFalseWhenNoParameterlessConstructorExists()
+                {
                     typeof(NoParameterlessConstructor).HasParameterlessConstructor().ShouldBeFalse();
                 }
             }
@@ -98,21 +114,22 @@ namespace Grapevine.Tests.Server.Attributes
             public class CanInvokeMethod
             {
                 [Fact]
-                public void can_invoke_returns_true_for_static_methods()
+                public void ReturnsTrueForStaticMethods()
                 {
                     typeof(TestClass).GetMethod("TestStaticMethod").CanInvoke().ShouldBeTrue();
                 }
 
                 [Fact]
-                public void can_invoke_returns_false_when_method_is_abstract()
+                public void ReturnsFalseWhenClassIsAbstract()
                 {
                     typeof(TestAbstract).GetMethod("TestAbstractMethod").CanInvoke().ShouldBeFalse();
                 }
 
                 [Fact]
-                public void can_invoke_returns_false_when_reflectedtype_is_null()
+                public void ReturnsFalseWhenReflectedTypeIsNull()
                 {
-                    var method = new MethodInfoWrapper(typeof(TestClass).GetMethod("TestMethod"));
+                    var method = Substitute.For<MethodInfo>();
+                    method.ReflectedType.ReturnsNull();
 
                     method.IsStatic.ShouldBeFalse();
                     method.IsAbstract.ShouldBeFalse();
@@ -120,20 +137,20 @@ namespace Grapevine.Tests.Server.Attributes
                 }
 
                 [Fact]
-                public void can_invoke_returns_false_when_reflected_type_is_not_a_class()
+                public void ReturnsFalseWhenReflectedTypeIsNotAClass()
                 {
                     typeof(TestInterface).GetMethod("TestInterfaceMethod").CanInvoke().ShouldBeFalse();
                     typeof(TestStruct).GetMethod("TestStructMethod").CanInvoke().ShouldBeFalse();
                 }
 
                 [Fact]
-                public void can_invoke_returns_false_when_reflected_type_is_abstract()
+                public void ReturnsFalseWhenReflectedTypeIsAbstract()
                 {
                     typeof(TestAbstract).GetMethod("TestVirtualMethod").CanInvoke().ShouldBeFalse();
                 }
 
                 [Fact]
-                public void can_invoke_returns_true_on_invokable_method()
+                public void ReturnsTrueOnInvokableMethod()
                 {
                     typeof(TestClass).GetMethod("TestMethod").CanInvoke().ShouldBeTrue();
                 }
@@ -142,7 +159,7 @@ namespace Grapevine.Tests.Server.Attributes
             public class IsRestRouteEligibleMethod
             {
                 [Fact]
-                public void is_rr_eligible_returns_false_when_methodinfo_is_null()
+                public void ReturnsFalseWhenMethodInfoIsNull()
                 {
                     MethodInfo method = null;
                     Action<MethodInfo> action = info => info.IsRestRouteEligible();
@@ -150,52 +167,52 @@ namespace Grapevine.Tests.Server.Attributes
                 }
 
                 [Fact]
-                public void is_rr_eligible_returns_false_when_methodinfo_is_not_invokable()
+                public void ReturnsFalseWhenMethodInfoIsNotInvokable()
                 {
                     typeof(TestAbstract).GetMethod("TestAbstractMethod").IsRestRouteEligible().ShouldBeFalse();
                 }
 
                 [Fact]
-                public void is_rr_eligible_returns_false_when_method_reflectedtype_has_no_parameterless_constructor()
+                public void ReturnsFalseWhenMethodInfoReflectedTypeHasNoParameterlessConstructor()
                 {
                     typeof(NoParameterlessConstructor).GetMethod("TestMethod").IsRestRouteEligible().ShouldBeFalse();
                 }
 
                 [Fact]
-                public void is_rr_eligible_returns_false_when_method_is_special_name()
+                public void ReturnsFalseWhenMethodIsSpecialName()
                 {
                     typeof(TestClass).GetMethod("get_TestProperty").IsRestRouteEligible().ShouldBeFalse();
                 }
 
                 [Fact]
-                public void is_rr_eligible_returns_false_when_return_type_is_not_ihttpcontext()
+                public void ReturnsFalseWhenReturnTypeIsNotIHttpContext()
                 {
                     typeof(TestClass).GetMethod("HasNoReturnValue").IsRestRouteEligible().ShouldBeFalse();
                     typeof(TestClass).GetMethod("ReturnValueIsWrongType").IsRestRouteEligible().ShouldBeFalse();
                 }
 
                 [Fact]
-                public void is_rr_eligible_returns_false_when_method_accepts_more_or_less_than_one_argument()
+                public void ReturnsFalseWhenMethodAcceptsMoreOrLessThanOneArgument()
                 {
                     typeof(TestClass).GetMethod("TakesZeroArgs").IsRestRouteEligible().ShouldBeFalse();
                     typeof(TestClass).GetMethod("TakesTwoArgs").IsRestRouteEligible().ShouldBeFalse();
                 }
 
                 [Fact]
-                public void is_rr_eligible_returns_false_when_first_argument_is_not_ihttpcontext()
+                public void ReturnsFalseWhenFirstArgumentIsNotIHttpContext()
                 {
                     typeof(TestClass).GetMethod("TakesWrongArgs").IsRestRouteEligible().ShouldBeFalse();
                 }
 
                 [Fact]
-                public void is_rr_eligible_throws_aggregate_exception_when_method_is_not_eligible_and_throw_exceptions_is_true()
+                public void ThrowsAggregateExceptionWhenThrowExceptionsIsTrue()
                 {
                     Should.Throw<InvalidRouteMethodExceptions>(
                         () => typeof(TestClass).GetMethod("TakesWrongArgs").IsRestRouteEligible(true));
                 }
 
                 [Fact]
-                public void is_rr_eligible_returns_true_when_method_is_eligible()
+                public void ReturnsTrueWhenMethodInfoIsEligible()
                 {
                     typeof(TestClass).GetMethod("ValidRoute").IsRestRouteEligible().ShouldBeTrue();
                 }
@@ -204,26 +221,26 @@ namespace Grapevine.Tests.Server.Attributes
             public class IsRestRouteMethod
             {
                 [Fact]
-                public void is_rest_route_returns_false_when_method_is_not_eligible()
+                public void ReturnsFalseWhenMethodIsNotEligible()
                 {
                     typeof(TestClass).GetMethod("HasAttributeButIsNotEligible").IsRestRoute().ShouldBeFalse();
                 }
 
                 [Fact]
-                public void is_rest_route_returns_false_when_restroute_attribute_is_not_present()
+                public void ReturnsFalseWhenAttributeIsNotPresent()
                 {
                     typeof(TestClass).GetMethod("IsEligibleButNoAttribute").IsRestRoute().ShouldBeFalse();
                 }
 
                 [Fact]
-                public void is_rest_route_throws_exception_when_false_and_throw_exceptions_is_true()
+                public void ThrowsExceptionWhenThrowExceptionsIsTrue()
                 {
                     Should.Throw<InvalidRouteMethodExceptions>(() => typeof(TestClass).GetMethod("HasAttributeButIsNotEligible").IsRestRoute(true));
                     Should.Throw<InvalidRouteMethodExceptions>(() => typeof(TestClass).GetMethod("IsEligibleButNoAttribute").IsRestRoute(true));
                 }
 
                 [Fact]
-                public void is_rest_route_returns_true_when_attribute_is_present_and_method_is_eligible()
+                public void ReturnsTrueWhenAttributeIsPresentAndMethodInfoIsEligible()
                 {
 
                 }
@@ -233,7 +250,7 @@ namespace Grapevine.Tests.Server.Attributes
 
     /* Classes and methods used in testing */
 
-    public class RestRouteTesterHelper
+    public class RouteTestMethods
     {
         [RestRoute]
         public IHttpContext RouteHasNoArgs(IHttpContext context)
@@ -370,58 +387,6 @@ namespace Grapevine.Tests.Server.Attributes
         public IHttpContext IsEligibleButNoAttribute(IHttpContext context)
         {
             return context;
-        }
-    }
-
-    public class MethodInfoWrapper : MethodInfo
-    {
-        private readonly MethodInfo _methodInfo;
-
-        public override ICustomAttributeProvider ReturnTypeCustomAttributes => _methodInfo.ReturnTypeCustomAttributes;
-        public override string Name => _methodInfo.Name;
-        public override Type DeclaringType => _methodInfo.DeclaringType;
-        public override Type ReflectedType => null;
-        public override RuntimeMethodHandle MethodHandle => _methodInfo.MethodHandle;
-        public override MethodAttributes Attributes => _methodInfo.Attributes;
-
-        public MethodInfoWrapper(MethodInfo methodInfo)
-        {
-            _methodInfo = methodInfo;
-        }
-
-        public override object[] GetCustomAttributes(bool inherit)
-        {
-            return _methodInfo.GetCustomAttributes(inherit);
-        }
-
-        public override bool IsDefined(Type attributeType, bool inherit)
-        {
-            return _methodInfo.IsDefined(attributeType, inherit);
-        }
-
-        public override ParameterInfo[] GetParameters()
-        {
-            return _methodInfo.GetParameters();
-        }
-
-        public override MethodImplAttributes GetMethodImplementationFlags()
-        {
-            return _methodInfo.GetMethodImplementationFlags();
-        }
-
-        public override object Invoke(object obj, BindingFlags invokeAttr, Binder binder, object[] parameters, CultureInfo culture)
-        {
-            return _methodInfo.Invoke(obj, invokeAttr, binder, parameters, culture);
-        }
-
-        public override MethodInfo GetBaseDefinition()
-        {
-            return _methodInfo.GetBaseDefinition();
-        }
-
-        public override object[] GetCustomAttributes(Type attributeType, bool inherit)
-        {
-            return _methodInfo.GetCustomAttributes(attributeType, inherit);
         }
     }
 }

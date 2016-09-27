@@ -61,7 +61,7 @@
     <Compile Include="Interfaces\Server\HttpContext.cs" />
     <Compile Include="Interfaces\Server\HttpRequest.cs" />
     <Compile Include="Interfaces\Server\HttpResponse.cs" />
-    <Compile Include="Interfaces\DynamicProperties.cs" />
+    <Compile Include="Shared\DynamicProperties.cs" />
     <Compile Include="Interfaces\Server\IHttpListener.cs" />
     <Compile Include="Server\RouteScanner.cs" />
     <Compile Include="Server\ServerSettings.cs" />
