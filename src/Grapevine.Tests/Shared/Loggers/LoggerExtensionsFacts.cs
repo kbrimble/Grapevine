@@ -19,7 +19,7 @@ namespace Grapevine.Tests.Shared.Loggers
         }
 
         [Fact]
-        public void logger_routing_complete_message_gets_logged()
+        public void RoutingCompleteMessageLogged()
         {
             var expected = $"Routing Complete : {MessageText}";
             var logger = new InMemoryLogger();
@@ -29,7 +29,7 @@ namespace Grapevine.Tests.Shared.Loggers
         }
 
         [Fact]
-        public void logger_route_invoked_message_gets_logged()
+        public void RouteInvokedMessageLogged()
         {
             var expected = $"Route Invoked    : {MessageText}";
             var logger = new InMemoryLogger();

@@ -75,10 +75,20 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Server\Attributes\RestResourceFacts.cs" />
+    <Compile Include="Server\Attributes\RestRouteFacts.cs" />
+    <Compile Include="Shared\ContentTypeFacts.cs" />
+    <Compile Include="Shared\HttpMethodFacts.cs" />
+    <Compile Include="Shared\HttpStatusCodeFacts.cs" />
+    <Compile Include="Shared\InternalExtensionsFacts.cs" />
+    <Compile Include="Shared\NameValueCollectionExtensionsFacts.cs" />
     <Compile Include="Shared\Loggers\ConsoleLoggerFacts.cs" />
     <Compile Include="Shared\Loggers\InMemoryLoggerFacts.cs" />
     <Compile Include="Shared\Loggers\LoggerExtensionsFacts.cs" />
     <Compile Include="Shared\Loggers\NullLoggerFacts.cs" />
+    <Compile Include="Shared\PatternParserFacts.cs" />
+    <Compile Include="Shared\PortFinderFacts.cs" />
+    <Compile Include="Shared\UriSchemeFacts.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

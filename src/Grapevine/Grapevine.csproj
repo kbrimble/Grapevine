@@ -71,9 +71,7 @@
     <Compile Include="Server\Route.cs" />
     <Compile Include="Server\Router.cs" />
     <Compile Include="Shared\ContentType.cs" />
-    <Compile Include="Shared\ContentTypeExtensions.cs" />
-    <Compile Include="Shared\ContentTypeMetadata.cs" />
-    <Compile Include="Shared\ExportedExtensions.cs" />
+    <Compile Include="Shared\NameValueCollectionExtensions.cs" />
     <Compile Include="Shared\HttpStatusCode.cs" />
     <Compile Include="Shared\InternalExtensions.cs" />
     <Compile Include="Shared\HttpMethod.cs" />

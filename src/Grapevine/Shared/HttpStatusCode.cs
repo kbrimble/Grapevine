@@ -347,5 +347,10 @@
         {
             return sc.ToString().ConvertCamelCase();
         }
+
+        public static int ToInteger(this HttpStatusCode sc)
+        {
+            return (int) sc;
+        }
     }
 }
