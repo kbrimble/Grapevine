@@ -238,14 +238,13 @@ namespace Grapevine.Tests.Server
                 var route1 = new Route(method1);
                 var route2 = new Route(method2);
 
-                var response = Mocks.HttpResponse();
-                var context = Mocks.HttpContext(response);
+                var context = Mocks.HttpContext();
 
                 route1.Invoke(context);
-                response.DidNotReceive().Abort();
+                context.Response.DidNotReceive().Abort();
 
                 route2.Invoke(context);
-                response.DidNotReceive().Abort();
+                context.Response.DidNotReceive().Abort();
             }
 
             [Fact]
