@@ -85,6 +85,7 @@
     <Compile Include="Server\FluentRouteCreatorFacts.cs" />
     <Compile Include="Server\PublicFolderFacts.cs" />
     <Compile Include="Server\RouteFacts.cs" />
+    <Compile Include="Server\RouteScannerFacts.cs" />
     <Compile Include="Shared\ContentTypeFacts.cs" />
     <Compile Include="Shared\DynamicPropertiesFact.cs" />
     <Compile Include="Shared\HttpMethodFacts.cs" />
