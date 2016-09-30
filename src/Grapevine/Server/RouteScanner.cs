@@ -133,6 +133,19 @@ namespace Grapevine.Server
 
         public IGrapevineLogger Logger { get; set; }
 
+        public static readonly List<Assembly> Assemblies;
+
+        static RouteScanner()
+        {
+            Assemblies = new List<Assembly>();
+            foreach (
+                var assembly in
+                    AppDomain.CurrentDomain.GetAssemblies()
+                        .Where(a => !a.GlobalAssemblyCache && a.GetName().Name != "Grapevine" && !a.GetName().Name.StartsWith("vshost"))
+                        .OrderBy(a => a.FullName))
+            {Assemblies.Add(assembly);}
+        }
+
         internal RouteScanner()
         {
             Logger = NullLogger.GetInstance();
@@ -240,9 +253,9 @@ namespace Grapevine.Server
 
             Logger.Trace("Scanning resources for routes...");
 
-            foreach (var assembly in AppDomain.CurrentDomain.GetAssemblies().Where(a => !a.GlobalAssemblyCache && a.GetName().Name != "Grapevine").OrderBy(a => a.FullName))
+            foreach (var assembly in Assemblies)
             {
-                if (assembly.GetName().Name.StartsWith("vshost") || IsExcluded(assembly) || !IsIncluded(assembly)) continue;
+                if (IsExcluded(assembly) || !IsIncluded(assembly)) continue;
                 routes.AddRange(ScanAssembly(assembly));
             }
 

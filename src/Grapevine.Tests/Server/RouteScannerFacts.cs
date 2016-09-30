@@ -26,7 +26,7 @@ namespace Grapevine.Tests.Server
         public class ExcludeMethod
         {
             [Fact]
-            public void scanner_excludes_assemblies()
+            public void ExcludesAssemblies()
             {
                 var assembly = AppDomain.CurrentDomain.GetAssemblies().First();
                 var scanner = new RouteScanner();
@@ -39,7 +39,7 @@ namespace Grapevine.Tests.Server
             }
 
             [Fact]
-            public void scanner_excludes_generic_types()
+            public void ExcludesGenericTypes()
             {
                 var scanner = new RouteScanner();
                 scanner.ExcludedTypes().Count.ShouldBe(0);
@@ -51,7 +51,7 @@ namespace Grapevine.Tests.Server
             }
 
             [Fact]
-            public void scanner_excludes_types()
+            public void ExcludesTypes()
             {
                 var scanner = new RouteScanner();
                 scanner.ExcludedTypes().Count.ShouldBe(0);
@@ -63,7 +63,7 @@ namespace Grapevine.Tests.Server
             }
 
             [Fact]
-            public void scanner_excludes_namespaces()
+            public void ExcludesNamespaces()
             {
                 const string ns = "Grapevine.Tests.Server";
                 var scanner = new RouteScanner();
@@ -76,7 +76,7 @@ namespace Grapevine.Tests.Server
             }
 
             [Fact]
-            public void scanner_excludes_skips_duplicate_assemblies()
+            public void SkipsDuplicateAssemblies()
             {
                 var assemblies = AppDomain.CurrentDomain.GetAssemblies();
                 var assembly1 = assemblies[0];
@@ -104,7 +104,7 @@ namespace Grapevine.Tests.Server
             }
 
             [Fact]
-            public void scanner_excludes_skips_duplicate_types()
+            public void SkipsDuplicateTypes()
             {
                 var scanner = new RouteScanner();
                 scanner.ExcludedTypes().Count.ShouldBe(0);
@@ -128,7 +128,7 @@ namespace Grapevine.Tests.Server
             }
 
             [Fact]
-            public void scanner_excludes_skips_duplicate_namespaces()
+            public void SkipsDuplicateNamespaces()
             {
                 const string ns1 = "Grapevine.Tests.Server";
                 const string ns2 = "Grapevine.Tests.Client";
@@ -157,7 +157,7 @@ namespace Grapevine.Tests.Server
             public class IsExcludedMethod
             {
                 [Fact]
-                public void scanner_excludes_is_false_if_excludes_is_empty()
+                public void ReturnsFalseWhenExcludesIsEmpty()
                 {
                     var scanner = new RouteScanner();
                     scanner.CheckIsExcluded(AppDomain.CurrentDomain.GetAssemblies().First()).ShouldBeFalse();
@@ -166,7 +166,7 @@ namespace Grapevine.Tests.Server
                 }
 
                 [Fact]
-                public void scanner_excludes_is_true_if_assembly_is_in_excludes()
+                public void ReturnsTrueWhenAssemblyIsExcluded()
                 {
                     var assembly = AppDomain.CurrentDomain.GetAssemblies().First();
                     var scanner = new RouteScanner();
@@ -175,7 +175,7 @@ namespace Grapevine.Tests.Server
                 }
 
                 [Fact]
-                public void scanner_excludes_is_true_if_type_is_in_excludes()
+                public void ReturnsTrueWhenTypeIsExcluded()
                 {
                     var scanner = new RouteScanner();
                     scanner.Exclude(typeof(Route));
@@ -183,7 +183,7 @@ namespace Grapevine.Tests.Server
                 }
 
                 [Fact]
-                public void scanner_excludes_is_true_if_generic_type_is_in_excludes()
+                public void ReturnsTrueWhenGenericTypeIsExcluded()
                 {
                     var scanner = new RouteScanner();
                     scanner.Exclude<Route>();
@@ -191,7 +191,7 @@ namespace Grapevine.Tests.Server
                 }
 
                 [Fact]
-                public void scanner_excludes_is_true_if_namespace_is_in_excludes()
+                public void ReturnsTrueWhenNamespaceIsExcluded()
                 {
                     var scanner = new RouteScanner();
                     scanner.Exclude("Some.Random.Namespace");
@@ -199,7 +199,7 @@ namespace Grapevine.Tests.Server
                 }
 
                 [Fact]
-                public void scanner_excludes_is_false_if_assembly_is_not_in_excludes()
+                public void ReturnsFalseWhenAssemblyIsNotExcluded()
                 {
                     var assemblies = AppDomain.CurrentDomain.GetAssemblies();
                     var assembly1 = assemblies[0];
@@ -211,7 +211,7 @@ namespace Grapevine.Tests.Server
                 }
 
                 [Fact]
-                public void scanner_excludes_is_false_if_type_is_not_in_excludes()
+                public void ReturnsFalseWhenTypeIsNotExcluded()
                 {
                     var scanner = new RouteScanner();
                     scanner.Exclude<Route>();
@@ -219,7 +219,7 @@ namespace Grapevine.Tests.Server
                 }
 
                 [Fact]
-                public void scanner_excludes_is_false_if_namespace_is_not_in_excludes()
+                public void ReturnsFalseWhenNamespaceIsNotExcluded()
                 {
                     var scanner = new RouteScanner();
                     scanner.Exclude("Some.Random.Namespace");
@@ -231,7 +231,7 @@ namespace Grapevine.Tests.Server
         public class IncludeMethod
         {
             [Fact]
-            public void scanner_includes_assemblies()
+            public void IncludesAssemblies()
             {
                 var assembly = AppDomain.CurrentDomain.GetAssemblies().First();
                 var scanner = new RouteScanner();
@@ -244,7 +244,7 @@ namespace Grapevine.Tests.Server
             }
 
             [Fact]
-            public void scanner_includes_generic_types()
+            public void IncludesGenericTypes()
             {
                 var scanner = new RouteScanner();
                 scanner.IncludedTypes().Count.ShouldBe(0);
@@ -256,7 +256,7 @@ namespace Grapevine.Tests.Server
             }
 
             [Fact]
-            public void scanner_includes_types()
+            public void IncludesTypes()
             {
                 var scanner = new RouteScanner();
                 scanner.IncludedTypes().Count.ShouldBe(0);
@@ -268,7 +268,7 @@ namespace Grapevine.Tests.Server
             }
 
             [Fact]
-            public void scanner_includes_namespaces()
+            public void IncludesNamespaces()
             {
                 const string ns = "Grapevine.Tests.Server";
                 var scanner = new RouteScanner();
@@ -281,7 +281,7 @@ namespace Grapevine.Tests.Server
             }
 
             [Fact]
-            public void scanner_includes_skips_duplicate_assemblies()
+            public void SkipsDuplicateAssemblies()
             {
                 var assemblies = AppDomain.CurrentDomain.GetAssemblies();
                 var assembly1 = assemblies[0];
@@ -309,7 +309,7 @@ namespace Grapevine.Tests.Server
             }
 
             [Fact]
-            public void scanner_includes_skips_duplicate_types()
+            public void SkipsDuplicateTypes()
             {
                 var scanner = new RouteScanner();
                 scanner.IncludedTypes().Count.ShouldBe(0);
@@ -333,7 +333,7 @@ namespace Grapevine.Tests.Server
             }
 
             [Fact]
-            public void scanner_includes_skips_duplicate_namespaces()
+            public void SkipsDuplicateNamespaces()
             {
                 const string ns1 = "Grapevine.Tests.Server";
                 const string ns2 = "Grapevine.Tests.Client";
@@ -362,16 +362,15 @@ namespace Grapevine.Tests.Server
             public class IsIncludedMethod
             {
                 [Fact]
-                public void scanner_includes_is_true_if_includes_is_empty()
+                public void ReturnsTrueWhenIncludesIsEmpty()
                 {
                     var scanner = new RouteScanner();
                     scanner.CheckIsIncluded(AppDomain.CurrentDomain.GetAssemblies().First()).ShouldBeTrue();
-                    scanner.CheckIsIncluded("Some.Random.Namespace").ShouldBeTrue();
                     scanner.CheckIsIncluded(typeof(Route)).ShouldBeTrue();
                 }
 
                 [Fact]
-                public void scanner_includes_is_true_if_assembly_is_in_includes()
+                public void ReturnsTrueWhenAssemblyIsIncluded()
                 {
                     var assembly = AppDomain.CurrentDomain.GetAssemblies().First();
                     var scanner = new RouteScanner();
@@ -380,7 +379,7 @@ namespace Grapevine.Tests.Server
                 }
 
                 [Fact]
-                public void scanner_includes_is_true_if_type_is_in_includes()
+                public void ReturnsTrueWhenTypeIsIncluded()
                 {
                     var scanner = new RouteScanner();
                     scanner.Include(typeof(Route));
@@ -388,7 +387,7 @@ namespace Grapevine.Tests.Server
                 }
 
                 [Fact]
-                public void scanner_includes_is_true_if_generic_type_is_in_includes()
+                public void ReturnsTrueWhenGenericTypeIsIncluded()
                 {
                     var scanner = new RouteScanner();
                     scanner.Include<Route>();
@@ -396,15 +395,7 @@ namespace Grapevine.Tests.Server
                 }
 
                 [Fact]
-                public void scanner_includes_is_true_if_namespace_is_in_includes()
-                {
-                    var scanner = new RouteScanner();
-                    scanner.Include("Some.Random.Namespace");
-                    scanner.CheckIsIncluded("Some.Random.Namespace").ShouldBeTrue();
-                }
-
-                [Fact]
-                public void scanner_includes_is_false_if_assembly_is_not_in_includes()
+                public void ReturnsFalseWhenAssemblyIsNotIncluded()
                 {
                     var assemblies = AppDomain.CurrentDomain.GetAssemblies();
                     var assembly1 = assemblies[0];
@@ -416,19 +407,11 @@ namespace Grapevine.Tests.Server
                 }
 
                 [Fact]
-                public void scanner_includes_is_false_if_type_is_not_in_includes()
+                public void ReturnsFalseWhenTypeIsNotInIncludes()
                 {
                     var scanner = new RouteScanner();
                     scanner.Include<Route>();
                     scanner.CheckIsIncluded(typeof(Router)).ShouldBeFalse();
-                }
-
-                [Fact]
-                public void scanner_includes_is_false_if_namespace_is_not_in_includes()
-                {
-                    var scanner = new RouteScanner();
-                    scanner.Include("Some.Other.Namespace");
-                    scanner.CheckIsIncluded("Some.Random.Namespace").ShouldBeFalse();
                 }
             }
         }
@@ -436,7 +419,7 @@ namespace Grapevine.Tests.Server
         public class ScopeProperty
         {
             [Fact]
-            public void scanner_set_scope()
+            public void SetScope()
             {
                 const string scope = "MyScope";
                 var scanner = new RouteScanner();
@@ -450,14 +433,14 @@ namespace Grapevine.Tests.Server
             public class IsInScopeMethod
             {
                 [Fact]
-                public void scanner_isinscope_returns_true_when_type_is_not_rest_resource()
+                public void ReturnsTrueWhenTypeIsNotRestResource()
                 {
                     var scanner = new RouteScanner();
                     scanner.CheckIsInScope(typeof(NotARestResource)).ShouldBeTrue();
                 }
 
                 [Fact]
-                public void scanner_isinscope_returns_true_when_scanner_scope_is_null_or_empty()
+                public void ReturnsTrueWhenScopeIsNullOrEmpty()
                 {
                     var scanner = new RouteScanner();
                     scanner.CheckIsInScope(typeof(ClassInScopeA)).ShouldBeTrue();
@@ -465,7 +448,7 @@ namespace Grapevine.Tests.Server
                 }
 
                 [Fact]
-                public void scanner_isinscope_returns_false_when_scanner_scope_does_not_match_type_scope()
+                public void ReturnsFalseWhenTypeScopeDoesNotMatch()
                 {
                     var scanner = new RouteScanner();
                     scanner.SetScope("ScopeA");
@@ -473,7 +456,7 @@ namespace Grapevine.Tests.Server
                 }
 
                 [Fact]
-                public void scanner_isinscope_logs_to_logger_when_returns_false()
+                public void LogsWhenNotInScope()
                 {
                     var type = typeof(ClassInScopeB);
                     var logger = new InMemoryLogger();
@@ -490,7 +473,7 @@ namespace Grapevine.Tests.Server
                 }
 
                 [Fact]
-                public void scanner_isinscope_returns_true_when_type_is_in_scope()
+                public void ReturnsTrueWhenTypeIsInScope()
                 {
                     var scanner = new RouteScanner();
                     scanner.SetScope("ScopeA");
@@ -502,18 +485,18 @@ namespace Grapevine.Tests.Server
         public class ScanMethod
         {
             [Fact]
-            public void scanner_scan_returns_routes_and_logs()
+            public void ReturnsRoutesAndLogs()
             {
-                ReflectionTypeLoadException exception = null;
-                var attempts = 0;
+                //ReflectionTypeLoadException exception = null;
+                //var attempts = 0;
 
-                do
-                {
-                    attempts++;
-                    exception = null;
+                //do
+                //{
+                //    attempts++;
+                //    exception = null;
 
-                    try
-                    {
+                //    try
+                //    {
                         var logger = new InMemoryLogger();
                         var scanner = new RouteScanner { Logger = logger };
 
@@ -525,30 +508,30 @@ namespace Grapevine.Tests.Server
                         routes.ShouldNotBeEmpty();
                         routes.Count.ShouldBeGreaterThanOrEqualTo(2);
                         logger.Logs.ShouldNotBeEmpty();
-                    }
-                    catch (ReflectionTypeLoadException ex)
-                    {
-                        exception = ex;
-                        Thread.Sleep(417);
-                    }
-                } while (exception != null || attempts > 5);
+                //    }
+                //    catch (ReflectionTypeLoadException ex)
+                //    {
+                //        exception = ex;
+                //        Thread.Sleep(417);
+                //    }
+                //} while (exception != null || attempts > 5);
 
-                if (exception != null) throw exception;
+                //if (exception != null) throw exception;
             }
 
             [Fact]
-            public void scanner_scan_returns_routes_and_logs_with_inclusions()
+            public void ReturnsRoutesAndLogsWithInclusions()
             {
-                ReflectionTypeLoadException exception = null;
-                var attempts = 0;
+                //ReflectionTypeLoadException exception = null;
+                //var attempts = 0;
 
-                do
-                {
-                    attempts++;
-                    exception = null;
+                //do
+                //{
+                //    attempts++;
+                //    exception = null;
 
-                    try
-                    {
+                //    try
+                //    {
                         var logger = new InMemoryLogger();
                         var scanner = new RouteScanner { Logger = logger };
 
@@ -560,31 +543,30 @@ namespace Grapevine.Tests.Server
                         routes.ShouldNotBeNull();
                         routes.Count.ShouldBe(2);
                         logger.Logs.ShouldNotBeEmpty();
-                    }
-                    catch (ReflectionTypeLoadException ex)
-                    {
-                        exception = ex;
-                        Thread.Sleep(231);
-                    }
-                } while (exception != null || attempts > 5);
+                //    }
+                //    catch (ReflectionTypeLoadException ex)
+                //    {
+                //        exception = ex;
+                //        Thread.Sleep(231);
+                //    }
+                //} while (exception != null || attempts > 5);
 
-                if (exception != null) throw exception;
+                //if (exception != null) throw exception;
             }
 
             [Fact]
-            public void scanner_scan_returns_routes_and_logs_with_exclusions()
+            public void ReturnsRoutesAndLogsWithExclusions()
             {
-                ReflectionTypeLoadException exception = null;
-                var attempts = 0;
+                //ReflectionTypeLoadException exception = null;
+                //var attempts = 0;
 
-                do
-                {
-                    attempts++;
-                    exception = null;
+                //do
+                //{
+                //    attempts++;
+                //    exception = null;
 
-                    try
-                    {
-
+                //    try
+                //    {
                         var logger = new InMemoryLogger();
                         var scanner = new RouteScanner { Logger = logger };
 
@@ -600,22 +582,22 @@ namespace Grapevine.Tests.Server
                         routesAfter.ShouldNotBeNull();
                         (routesBefore.Count - routesAfter.Count).ShouldBe(2);
                         logger.Logs.ShouldNotBeEmpty();
-                    }
-                    catch (ReflectionTypeLoadException ex)
-                    {
-                        exception = ex;
-                        Thread.Sleep(780);
-                    }
-                } while (exception != null || attempts > 5);
+                //    }
+                //    catch (ReflectionTypeLoadException ex)
+                //    {
+                //        exception = ex;
+                //        Thread.Sleep(780);
+                //    }
+                //} while (exception != null || attempts > 5);
 
-                if (exception != null) throw exception;
+                //if (exception != null) throw exception;
             }
         }
 
         public class ScanAssemblyMethod : RouteScannerFacts
         {
             [Fact]
-            public void scanner_scan_assembly_returns_empty_when_no_routes_in_assembly()
+            public void ReturnsEmptyWhenNoRoutesAreInAssembly()
             {
                 var assembly = typeof(RouteScanner).Assembly;
                 var logger = new InMemoryLogger();
@@ -633,7 +615,7 @@ namespace Grapevine.Tests.Server
             }
 
             [Fact]
-            public void scanner_scan_assembly_returns_routes_and_logs()
+            public void ReturnsRoutesAndLogs()
             {
                 var assembly = GetTestAssembly();
                 var logger = new InMemoryLogger();
@@ -657,7 +639,7 @@ namespace Grapevine.Tests.Server
             }
 
             [Fact]
-            public void scanner_scan_assembly_returns_routes_and_logs_with_baseurl_argument()
+            public void ReturnsRoutesAndLogsWithBaseUrlArgument()
             {
                 var assembly = GetTestAssembly();
                 var baseurl = "/api";
@@ -682,7 +664,7 @@ namespace Grapevine.Tests.Server
             }
 
             [Fact]
-            public void scanner_scan_assembly_returns_empty_if_assembly_is_excluded()
+            public void ReturnsEmptyIfAssemblyIsExcluded()
             {
                 var assembly = GetTestAssembly();
                 var type = typeof(ToDoListRoutes);
@@ -708,7 +690,7 @@ namespace Grapevine.Tests.Server
         public class ScanTypeMethod
         {
             [Fact]
-            public void scanner_scan_type_returns_empty_and_does_not_log_when_scanning_abstract_type()
+            public void ReturnsEmptyAndDoesNotLogAbstractType()
             {
                 var logger = new InMemoryLogger();
                 var scanner = new RouteScanner { Logger = logger };
@@ -723,7 +705,7 @@ namespace Grapevine.Tests.Server
             }
 
             [Fact]
-            public void scanner_scan_type_returns_empty_and_does_not_log_when_scanning_non_class_type()
+            public void ReturnsEmptyAndDoesNotLogNonClassType()
             {
                 var logger = new InMemoryLogger();
                 var scanner = new RouteScanner { Logger = logger };
@@ -738,7 +720,7 @@ namespace Grapevine.Tests.Server
             }
 
             [Fact]
-            public void scanner_scan_type_returns_routes_and_logs_without_attribute()
+            public void ReturnsRoutesAndLogsWithoutAttribute()
             {
                 var type = typeof(MethodsToScan);
                 var logger = new InMemoryLogger();
@@ -771,7 +753,7 @@ namespace Grapevine.Tests.Server
             }
 
             [Fact]
-            public void scanner_scan_type_returns_routes_and_logs_with_attribute_without_basepath()
+            public void ReturnsRoutesAndLogsWithAttributeWithoutBasepath()
             {
                 var type = typeof(TypeWithoutBasePath);
                 var logger = new InMemoryLogger();
@@ -794,7 +776,7 @@ namespace Grapevine.Tests.Server
             }
 
             [Fact]
-            public void scanner_scan_type_returns_routes_and_logs_with_attribute_with_basepath()
+            public void ReturnsRoutesAndLogsWithAttributeWithBasepath()
             {
                 var type = typeof(TypeWithBasePath);
                 var logger = new InMemoryLogger();
@@ -818,7 +800,7 @@ namespace Grapevine.Tests.Server
             }
 
             [Fact]
-            public void scanner_scan_type_returns_routes_and_logs_with_attribute_with_basepath_argument()
+            public void ReturnsRoutesAndLogsWithAttributeWithBasepathAndArgument()
             {
                 var type = typeof(TypeWithoutBasePath);
                 var logger = new InMemoryLogger();
@@ -842,7 +824,7 @@ namespace Grapevine.Tests.Server
             }
 
             [Fact]
-            public void scanner_scan_type_returns_routes_and_logs_when_basepath_is_arguement_and_attribute()
+            public void ReturnsRoutesAndLogsWithArgumentAndBasepathInAttribute()
             {
                 var type = typeof(TypeWithBasePath);
                 var logger = new InMemoryLogger();
@@ -869,7 +851,7 @@ namespace Grapevine.Tests.Server
         public class ScanMethodMethod
         {
             [Fact]
-            public void scanner_scan_method_throws_exception_when_scanning_ineligible_method()
+            public void ThrowsExceptionWhenMethodIsNotEligible()
             {
                 var scanner = new RouteScanner();
                 var method = typeof(MethodsToScan).GetMethod("InvalidRoute");
@@ -877,7 +859,7 @@ namespace Grapevine.Tests.Server
             }
 
             [Fact]
-            public void scanner_scan_method_returns_no_routes_when_method_has_no_attribute()
+            public void ReturnsNoRoutesWhenMethodHasNoAttribute()
             {
                 var scanner = new RouteScanner();
                 var method = typeof(MethodsToScan).GetMethod("HasNoAttributes");
@@ -889,7 +871,7 @@ namespace Grapevine.Tests.Server
             }
 
             [Fact]
-            public void scanner_scan_method_returns_one_route_when_method_has_one_attribute()
+            public void ReturnsOneRouteWhenMethodHasOneAttribute()
             {
                 var scanner = new RouteScanner();
                 var method = typeof(MethodsToScan).GetMethod("HasOneAttribute");
@@ -905,7 +887,7 @@ namespace Grapevine.Tests.Server
             }
 
             [Fact]
-            public void scanner_scan_method_returns_multiple_routes_when_method_has_multiple_attributes()
+            public void ReturnsMultipleRoutesWhenMethodHasMultipleAttributes()
             {
                 var scanner = new RouteScanner();
                 var method = typeof(MethodsToScan).GetMethod("HasMultipleAttributes");
@@ -925,7 +907,7 @@ namespace Grapevine.Tests.Server
             }
 
             [Fact]
-            public void scanner_scan_method_applies_basepath_to_routes_returned()
+            public void AppliesBasepathToRoutesReturned()
             {
                 var scanner = new RouteScanner();
                 var method = typeof(MethodsToScan).GetMethod("HasOneAttribute");
@@ -947,7 +929,7 @@ namespace Grapevine.Tests.Server
             }
 
             [Fact]
-            public void scanner_scan_method_logs_message_for_generated_routes()
+            public void LogsMessageForGeneratedRoutes()
             {
                 var logger = new InMemoryLogger();
                 var scanner = new RouteScanner { Logger = logger };
@@ -970,18 +952,58 @@ namespace Grapevine.Tests.Server
         public class GenerateBasePathMethod
         {
             [Fact]
-            public void scanner_generates_basepath()
+            public void ReturnsEmptyStringWhenBasepathIsNull()
             {
                 var scanner = new RouteScanner();
-
                 scanner.BasePathGenerator(null, typeof(MethodsToScan)).ShouldBe("");
+            }
+
+            [Fact]
+            public void ReturnsEmptyStringWhenBasepathIsEmpty()
+            {
+                var scanner = new RouteScanner();
                 scanner.BasePathGenerator(string.Empty, typeof(MethodsToScan)).ShouldBe("");
+            }
+
+            [Fact]
+            public void ReturnsEmptyStringWhenAttributeHasNoBasepathAndBasepathIsEmpty()
+            {
+                var scanner = new RouteScanner();
                 scanner.BasePathGenerator(string.Empty, typeof(TypeWithoutBasePath)).ShouldBe("");
+            }
+
+            [Fact]
+            public void ReturnsBasepathWhenTypeHasNoAttribute()
+            {
+                var scanner = new RouteScanner();
                 scanner.BasePathGenerator("thing", typeof(MethodsToScan)).ShouldBe("thing");
+            }
+
+            [Fact]
+            public void ReturnsBasepathWithForwardSlashes()
+            {
+                var scanner = new RouteScanner();
                 scanner.BasePathGenerator("/thing/", typeof(MethodsToScan)).ShouldBe("/thing/");
+            }
+
+            [Fact]
+            public void ReturnsAttributeBasepathWhenBasepathIsEmpty()
+            {
+                var scanner = new RouteScanner();
                 scanner.BasePathGenerator(string.Empty, typeof(TypeWithBasePath)).ShouldBe("/with");
-                scanner.BasePathGenerator(string.Empty, typeof(TypeWithBasePath)).ShouldBe("/with");
+            }
+
+            [Fact]
+            public void AppendsBasepathAndTypeBasepath()
+            {
+                var scanner = new RouteScanner();
                 scanner.BasePathGenerator("thing", typeof(TypeWithBasePath)).ShouldBe("thing/with");
+            }
+
+            [Fact]
+            public void DoesNotDuplicateForwardSlashesWhenAppending()
+            {
+                var scanner = new RouteScanner();
                 scanner.BasePathGenerator("/thing/", typeof(TypeWithBasePath)).ShouldBe("/thing/with");
             }
         }
@@ -989,18 +1011,72 @@ namespace Grapevine.Tests.Server
         public class SanitizeBasePathMethod
         {
             [Fact]
-            public void scanner_sanitizes_basepath()
+            public void ReturnsEmptyWhenBasepathIsNull()
             {
                 var scanner = new RouteScanner();
                 scanner.BasePathSanitizer(null).ShouldBe(string.Empty);
+            }
+
+            [Fact]
+            public void ReturnsEmptyWhenBasepathIsEmpty()
+            {
+                var scanner = new RouteScanner();
                 scanner.BasePathSanitizer(string.Empty).ShouldBe(string.Empty);
+            }
+
+            [Fact]
+            public void AppendsLeadingForwardSlash()
+            {
+                var scanner = new RouteScanner();
                 scanner.BasePathSanitizer("path").ShouldBe("/path");
+            }
+
+            [Fact]
+            public void DoesNotDuplicateLeadingForwardSlash()
+            {
+                var scanner = new RouteScanner();
                 scanner.BasePathSanitizer("/path").ShouldBe("/path");
+            }
+
+            [Fact]
+            public void TrimsTrailingForwardSlash()
+            {
+                var scanner = new RouteScanner();
                 scanner.BasePathSanitizer("path/").ShouldBe("/path");
+            }
+
+            [Fact]
+            public void TrimsLeadingWhitespace()
+            {
+                var scanner = new RouteScanner();
                 scanner.BasePathSanitizer(" path").ShouldBe("/path");
+            }
+
+            [Fact]
+            public void TrimsTrailingWhitespace()
+            {
+                var scanner = new RouteScanner();
                 scanner.BasePathSanitizer("path ").ShouldBe("/path");
+            }
+
+            [Fact]
+            public void TrimsLeadingAndTrailingWhitespace()
+            {
+                var scanner = new RouteScanner();
                 scanner.BasePathSanitizer(" path ").ShouldBe("/path");
+            }
+
+            [Fact]
+            public void TrimsWhitespaceAndTrailingForwardSlash()
+            {
+                var scanner = new RouteScanner();
                 scanner.BasePathSanitizer(" path/ ").ShouldBe("/path");
+            }
+
+            [Fact]
+            public void TrimsWhitespaceAndDoesNotDuplicateLeadingForwardSlash()
+            {
+                var scanner = new RouteScanner();
                 scanner.BasePathSanitizer(" /path ").ShouldBe("/path");
             }
         }
@@ -1169,13 +1245,6 @@ namespace Grapevine.Tests.Server
             var memberInfo = scanner.GetType();
             var method = memberInfo?.GetMethod("IsIncluded", BindingFlags.Instance | BindingFlags.NonPublic, null, new[] { typeof(Type) }, null);
             return (bool)method.Invoke(scanner, new object[] { type });
-        }
-
-        internal static bool CheckIsIncluded(this IRouteScanner scanner, string nameSpace)
-        {
-            var memberInfo = scanner.GetType();
-            var method = memberInfo?.GetMethod("IsIncluded", BindingFlags.Instance | BindingFlags.NonPublic, null, new[] { typeof(string) }, null);
-            return (bool)method.Invoke(scanner, new object[] { nameSpace });
         }
 
         internal static bool CheckIsIncluded(this IRouteScanner scanner, Assembly assembly)
